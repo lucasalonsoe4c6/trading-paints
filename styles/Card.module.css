@@ -26,10 +26,6 @@ div.cardHeader {
     font-weight: 700;
 }
 
-div.cardHeader a:hover {
-    color: #fff;
-}
-
 div.cardHeader span {
     border-radius: 100%;
 }
@@ -45,13 +41,13 @@ div.cardBody {
 
 p.info {
     padding: 0.5rem 1rem 0;
-    color: var(--white);
+    color: var(--gray);
     font-size: 0.65rem;
     opacity: 0;
     text-transform: uppercase;
 }
 
-div.card:hover ~ p.info {
+div.card:hover > div > p.info {
     opacity: 1;
 }
 
@@ -65,7 +61,6 @@ div.cardBody h3 {
 
 div.cardFooter {
     padding: 1rem;
-    color: var(--gray);
     display: flex;
     align-items: center;
     border-top: 1px solid var(--lightGray);
