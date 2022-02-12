@@ -1,0 +1,76 @@
+div.cardContainer {
+    width: 33.3333333333%;
+    padding: 1rem;
+    transition: color .15s ease-in;
+}
+
+div.card {
+    border: 1px solid var(--gray);
+    border-radius: 0.5rem;
+    opacity: 0.8;
+    transition: transform .25s ease-out,-webkit-transform .25s ease-out;
+    cursor: pointer;
+    color: var(--gray);
+}
+
+div.card:hover{
+    transform: scale(1.1);
+    color: var(--white);
+}
+
+div.cardHeader {
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    align-items: center;
+    font-weight: 700;
+}
+
+div.cardHeader a:hover {
+    color: #fff;
+}
+
+div.cardHeader span {
+    border-radius: 100%;
+}
+
+div.cardHeader a:last-child {
+    margin-left: 0.5rem;
+}
+
+div.cardBody {
+    width: 100%;
+    position: relative;
+}
+
+p.info {
+    padding: 0.5rem 1rem 0;
+    color: var(--white);
+    font-size: 0.65rem;
+    opacity: 0;
+    text-transform: uppercase;
+}
+
+div.card:hover ~ p.info {
+    opacity: 1;
+}
+
+div.cardBody h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.25rem;
+    padding: 0 1rem 1rem;
+}
+
+div.cardFooter {
+    padding: 1rem;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--gray);
+}
+
+div.cardFooter div:last-child {
+    margin-left: 1rem;
+}
