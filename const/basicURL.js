@@ -1,0 +1,1 @@
+export const basicURL = 'https://www.tradingpaints.com/js/showroom_cors.php?'

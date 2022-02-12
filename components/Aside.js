@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import classes from '../styles/Aside.module.css';
 
-export default function Aside() {
+export default function Aside({ hasNumber, setHasNumber }) {
     const [filtersOpen, setFiltersOpen] = useState({ number: true, vehicle: false, from: false, available: false });
+    
     return (
         <aside className={classes.aside}>
             <div className={classes.filter}>
@@ -15,11 +16,11 @@ export default function Aside() {
             {filtersOpen.number &&
                 <div className={classes.options}>
                     <div>
-                        <input type="checkbox" />
+                        <input type="checkbox" checked={!hasNumber} onChange={() => setHasNumber(!hasNumber)}/>
                         <span>Sim-Stamped Number</span>
                     </div>
                     <div>
-                        <input type="checkbox" />
+                        <input type="checkbox" checked={hasNumber} onChange={() => setHasNumber(!hasNumber)}/>
                         <span>Custom Number</span>
                     </div>
                 </div>

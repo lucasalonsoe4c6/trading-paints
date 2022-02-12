@@ -3,22 +3,27 @@ import Link from 'next/link';
 import React from 'react';
 import classes from '../styles/Card.module.css';
 
-export default function Card({ link, author, authorImage, title, image }) {
+export default function Card({ car }) {
+    const { title, drivername, users, bookmarks, car_make_name, dpic, pic, slink, dlink } = car;
     return (
         <div className={classes.cardContainer}>
             <div className={classes.card}>
                 <div className={classes.cardHeader}>
-                    <Link href="/"><Image src="/driver.jpg" width={32} height={32} /></Link>
-                    <Link href="/">Front Row Motorsports</Link>
+                    <Link href={dlink}><Image src={dpic} width={32} height={32} /></Link>
+                    <Link href={dlink}>{drivername}</Link>
                 </div>
                 <div className={classes.cardBody}>
-                    <Image src="/car.jpg" height={206} width={300} layout="responsive"/>
-                    <p className={classes.info}>ARCA Menards Chevrolet Impala SS</p>
-                    <h3>1985 Electrifying NASCAR Xfinity Series Version 2 </h3>
+                    <Link href={slink}>
+                        <Image src={pic} height={206} width={300} layout="responsive" />
+                    </Link>
+                    <p className={classes.info}>{car_make_name}</p>
+                    <Link href={slink}>
+                        <h3>{title}</h3>
+                    </Link>
                 </div>
                 <div className={classes.cardFooter}>
-                    <div>🏁 121</div>
-                    <div>★ 176</div>
+                    <div>🏁 {users}</div>
+                    <div>★ {bookmarks}</div>
                 </div>
             </div>
         </div>
