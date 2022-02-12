@@ -22,29 +22,30 @@ export default function Home(props) {
 
     const [ascending, setAscending] = useState(false);
     const [sort, setSort] = useState('popular');
-    const [reuse, setReuse] = useState(1);
+    const [reuse, setReuse] = useState(true);
     const [hasNumber, setHasNumber] = useState(true);
     const [from, setFrom] = useState('everyone');
     const [pos, setPos] = useState(0);
+    const [type, setType] = useState('All')
 
     useEffect(() => {
         if (firstRender.current) return firstRender.current = false;
 
         setLoading(true);
-        const url = `${basicURL}type=All&sort=${sort}&ad=${ascending ? 'ASC' : 'DESC'}&pos=0&${search === '' ? 'search=' : `search=${search}`}&reuse=${reuse}&family=1&hasNumber=${hasNumber ? 1 : 0}&from=everyone&stampednums=1`;
+        const url = `${basicURL}${type === 'All' ? 'type' : 'mid'}=${type}&sort=${sort}&ad=${ascending ? 'ASC' : 'DESC'}&pos=0&${search === '' ? 'search=' : `search=${search}`}&reuse=${reuse ? 1 : 0}&family=1&hasNumber=${hasNumber ? 1 : 0}&from=everyone&stampednums=1`;
         axios.get(url)
             .then(({ data }) => {
                 setCars(data.output.cars);
                 setLoading(false);
             })
             .catch(err => console.log(err));
-    }, [ascending, sort, reuse, hasNumber, from, search]);
+    }, [ascending, sort, reuse, hasNumber, from, search, type]);
 
     useEffect(() => {
         if (firstRender.current) return firstRender.current = false;
         if (pos === 0) return;
         setNewItemsLoading(true);
-        const url = `${basicURL}type=All&sort=${sort}&ad=${ascending ? 'ASC' : 'DESC'}&pos=${pos}&${search === '' ? 'search=' : `search=${search}`}&reuse=${reuse}&family=1&hasNumber=${hasNumber ? 1 : 0}&from=everyone&stampednums=1`;
+        const url = `${basicURL}${type === 'All' ? 'type' : 'mid'}=${type}&sort=${sort}&ad=${ascending ? 'ASC' : 'DESC'}&pos=${pos}&${search === '' ? 'search=' : `search=${search}`}&reuse=${reuse ? 1 : 0}&family=1&hasNumber=${hasNumber ? 1 : 0}&from=everyone&stampednums=1`;
         axios.get(url)
             .then(({ data }) => {
                 setCars([...cars, ...data.output.cars]);
@@ -53,13 +54,19 @@ export default function Home(props) {
             .catch(err => console.log(err));
     }, [pos])
 
-    useEffect(() => {
-        console.log(cars);
-    }, [cars])
-
     return (
         <Layout>
-            <Aside hasNumber={hasNumber} setHasNumber={setHasNumber} reuse={reuse} setReuse={setReuse} from={from} setFrom={setFrom} />
+            <Aside
+                cars={cars}
+                type={type}
+                setType={setType}
+                hasNumber={hasNumber}
+                setHasNumber={setHasNumber}
+                reuse={reuse}
+                setReuse={setReuse}
+                from={from}
+                setFrom={setFrom}
+            />
             <Filters sort={sort} setSort={setSort} ascending={ascending} setAscending={setAscending} />
             <main className={classes.main}>
                 <div className={classes.grid}>

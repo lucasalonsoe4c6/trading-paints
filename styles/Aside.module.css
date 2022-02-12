@@ -22,6 +22,9 @@ div.filter {
 span.close {
     transform: rotate(45deg);
 }
+span.close, span.open {
+    cursor: pointer;
+}
 
 .options {
     padding-bottom: 2rem;
