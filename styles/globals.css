@@ -2,6 +2,7 @@
     --black: #2a2b2e;
     --white: #FFFFFF;
     --gray: hsla(0, 0%, 100%, .7);
+    --lightGray: hsla(0, 0%, 100%, .2);
     --gradient: linear-gradient(90deg, rgba(255, 31, 62, 1) 0%, rgba(147, 93, 151, 1) 50%, rgba(32, 140, 241, 1) 100%);
 }
 
@@ -28,5 +29,5 @@ a {
     margin: auto;
     display: grid;
     grid-template-columns: 25% 75%;
-    grid-template-rows: 129px 57px auto 1fr;
+    grid-template-rows: 129px 121px auto 1fr;
 }

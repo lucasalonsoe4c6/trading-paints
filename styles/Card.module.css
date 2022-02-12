@@ -5,7 +5,7 @@ div.cardContainer {
 }
 
 div.card {
-    border: 1px solid var(--gray);
+    border: 1px solid var(--lightGray);
     border-radius: 0.5rem;
     opacity: 0.8;
     transition: transform .25s ease-out,-webkit-transform .25s ease-out;
@@ -68,7 +68,7 @@ div.cardFooter {
     color: var(--gray);
     display: flex;
     align-items: center;
-    border-top: 1px solid var(--gray);
+    border-top: 1px solid var(--lightGray);
 }
 
 div.cardFooter div:last-child {
