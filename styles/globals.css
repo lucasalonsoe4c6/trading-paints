@@ -28,5 +28,5 @@ a {
     margin: auto;
     display: grid;
     grid-template-columns: 25% 75%;
-    grid-template-rows: 129px 1fr;
+    grid-template-rows: 129px 57px auto 1fr;
 }
