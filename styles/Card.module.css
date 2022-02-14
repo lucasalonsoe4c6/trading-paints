@@ -30,13 +30,39 @@ div.cardHeader span {
     border-radius: 100%;
 }
 
-div.cardHeader a:last-child {
+div.cardHeader a:nth-child(2) {
     margin-left: 0.5rem;
+}
+
+div.cardHeader span.pro {
+    font-size: 0.65rem;
+    border-radius: 0.25rem;
+    color: var(--white);
+    background-color: #935D97;
+    text-transform: uppercase;
+    padding: 0 0.25rem;
+    margin-left: 0.25rem;
+    font-weight: 700;
+    display: none;
+    transition: all .15s ease-in;
+}
+
+div.card:hover > div.cardHeader span.pro {
+    display: inline-block;
 }
 
 div.cardBody {
     width: 100%;
     position: relative;
+}
+
+p.rankText {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    padding: 0.25rem;
+    text-align: center;
+    background-color: var(--white);
+    color: #000;
 }
 
 p.info {
